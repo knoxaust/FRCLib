@@ -149,19 +149,6 @@ public class RobotGrid implements Followable{
         return temp;
     }
 //NO ARCS OVER 90 DEGREES
-//FIXME
-/*    private double atan3(double tan,double angle){
-        double value = Math.toDegrees(tan);
-        if (angle <90 && angle >= 0 )
-            return value;
-        if (angle >= 90 && angle < 180)
-            return 180-value;
-        if (angle >= -180 && angle <= -90)
-            return -180 + value;
-        if (angle > -90)
-            return -value;
-        return 360;
-    }*/
     // average of both sides not just one
     @Override
     public double getAngle(double distance){
