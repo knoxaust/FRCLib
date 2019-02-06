@@ -185,54 +185,6 @@ public class RobotGrid implements Followable{
 
     	return Math.abs(1-Math.abs((angleTarget-angle)/115/1.66))*speed;
     }
-    public double getLeftIPS(double distance,double angle,double baseIPS, EncoderGyro change){//inches per second
-    	double t = 10/baseIPS;
-    	double leftDistance;
-    	double angleChange;
-    	if(baseIPS>0){
-    		if (getAngle(distance+10)>90 && angle < -90){
-     			angleChange = 180-getAngle(distance+10);
-    			angleChange += 180 + angle;
-    		}else if(angle > 90 && getAngle(distance + 10) < -90){
-    			angleChange = 180-angle;
-    			angleChange += 180 + getAngle(distance +10);
-    		}else angleChange = getAngle(distance +10)-angle;
-    	}else {
-    		if (getReverseAngle(distance+10)>90 && angle < -90){
-        		angleChange = 180-getReverseAngle(distance+10);
-        		angleChange += 180 + angle;
-        	}else if(angle > 90 && getReverseAngle(distance + 10) < -90){
-        		angleChange = 180-angle;
-        		angleChange += 180 + getReverseAngle(distance +10);
-        	}else angleChange = getReverseAngle(distance +10)-angle;
-    	}
-    	leftDistance = change.angleToDistance(angleChange)+10;
-    	return leftDistance /t;
-    }
-    public double getRightIPS(double distance,double angle,double baseIPS, EncoderGyro change){//inches per second
-    	double t = 10/baseIPS;
-    	double rightDistance;
-    	double angleChange;
-    	if(baseIPS>0){
-    		if (getAngle(distance+10)>90 && angle < -90){
-    		angleChange = 180-getAngle(distance+10);
-    		angleChange += 180 + angle;
-    		}else if(angle > 90 && getAngle(distance + 10) < -90){
-    		angleChange = 180-angle;
-    		angleChange += 180 + getAngle(distance +10);
-    		}else angleChange = getAngle(distance +10)-angle;
-    	}else {
-    		if (getReverseAngle(distance+10)>90 && angle < -90){
-        		angleChange = 180-getReverseAngle(distance+10);
-        		angleChange += 180 + angle;
-        	}else if(angle > 90 && getReverseAngle(distance + 10) < -90){
-        		angleChange = 180-angle;
-        		angleChange += 180 + getReverseAngle(distance +10);
-        	}else angleChange = getReverseAngle(distance +10)-angle;
-    	}
-    	rightDistance =  change.angleToDistance(angleChange)-10;
-    	return rightDistance /t;
-    }
 
     private int factorial(int n){
         if (n<=1)
